@@ -1,6 +1,6 @@
 import React from 'react'
 import '../App.css'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import logo from '../images/LOGO.svg'
 import circle from '../images/Ellipse 1.png'
