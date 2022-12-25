@@ -9,7 +9,7 @@ const Setup = () => {
     return (
         <div className="Home">
       <div className="navbar">
-        <a href="">
+        <a href="/">
           <img src={logo} className="logo" alt="residoLogo" />
         </a>
         <img src={circle} className="circle" alt="circle" />
