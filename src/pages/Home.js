@@ -9,7 +9,7 @@ import instagram from '../images/image 14.png'
 
 const Home = () => {
   const [email, setEmail] = useState('')
-  const url = 'http://localhost:3700/waitlist/join'
+  const url = 'https://waitlist-resido-api-gitcdxvi3q-uc.a.run.app/waitlist/join'
   const redirect = useNavigate()
 
 
