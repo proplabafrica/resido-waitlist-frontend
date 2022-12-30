@@ -1,29 +1,39 @@
-import React from 'react'
-import '../App.css'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import logo from '../images/LOGO.svg'
-import circle from '../images/Ellipse 1.png'
-import instagram from '../images/image 14.png'
-
+import React from "react";
+import "../App.css";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import logo from "../images/LOGO.svg";
+import circle from "../images/Ellipse 1.png";
+import instagram from "../images/image 14.png";
+import Spinner from "../components/Spinner/Spinner";
 
 const Home = () => {
-  const [email, setEmail] = useState('')
-  const url = 'https://waitlist-resido-api-gitcdxvi3q-uc.a.run.app/waitlist/join'
-  const redirect = useNavigate()
-
+  const [email, setEmail] = useState("");
+  const [isLoading, setLoading] = useState(false);
+  const url =
+    "https://waitlist-resido-api-gitcdxvi3q-uc.a.run.app/waitlist/join";
+  const redirect = useNavigate();
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    const body = { email }
+    setLoading(true);
+    e.preventDefault();
+    const body = { email };
     fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
     }).then(() => {
-      redirect("/join")
-    })
-  }
+      setLoading(false);
+      redirect("/join");
+    });
+  };
+
+  if (isLoading)
+    return (
+      <div className="spinner__wrapper">
+        <Spinner />
+      </div>
+    );
 
   return (
     <div className="Home">
@@ -54,13 +64,16 @@ const Home = () => {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        <button type="submit" onClick= {handleSubmit}> Get early access</button>
+        <button type="submit" onClick={handleSubmit}>
+          {" "}
+          Get early access
+        </button>
       </div>
 
       <div className="policy">
         <p>
-          By clicking “Continue” you agree to our <br />{' '}
-          <span className="privacy">Privacy Policy</span> and{' '}
+          By clicking “Continue” you agree to our <br />{" "}
+          <span className="privacy">Privacy Policy</span> and{" "}
           <span className="privacy">Terms of Use</span>
         </p>
       </div>
@@ -72,7 +85,7 @@ const Home = () => {
         </a>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
