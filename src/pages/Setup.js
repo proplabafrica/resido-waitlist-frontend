@@ -5,7 +5,6 @@ import circle from '../images/Ellipse 1.png'
 import instagram from '../images/image 14.png'
 
 const Setup = () => {
-    console.log("Tola");
     return (
         <div className="Home">
       <div className="navbar">
